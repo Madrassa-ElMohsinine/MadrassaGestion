@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: madrassah_development
+
+test:
+  <<: *default
+  database: madrassah_test
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
