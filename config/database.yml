@@ -1,11 +1,15 @@
-default: &default
+efault: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: madrassah_development
+  database: madrassah_dev
 
 test:
   <<: *default
